@@ -9,41 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack {
+
             VStack {
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
+                Color.green
+                    .frame(minWidth: 40, idealWidth: 100, maxWidth: 200, minHeight: 50, idealHeight: 120, maxHeight: 250)
+                Text("Fuck machine")
+                Spacer()
             }
-            VStack {
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-            }
-            VStack {
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-                ZStack {
-                    Image(systemName: "lasso.and.sparkles")
-                }
-            }
-        }
     }
 }
 
