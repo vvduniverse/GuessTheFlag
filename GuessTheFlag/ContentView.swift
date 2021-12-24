@@ -30,10 +30,12 @@ struct ContentView: View {
                         .frame(width: 100, height: 100)
                     Image(systemName: "sun.min")
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 75, height: 75)
                 }
             }
             Text("Another girl")
+                .font(.title).bold()
+                .foregroundStyle(.secondary)
                 .padding()
                 .background(.ultraThinMaterial)
         }
