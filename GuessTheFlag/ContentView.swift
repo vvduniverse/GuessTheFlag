@@ -9,8 +9,41 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack {
+            VStack {
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+            }
+            VStack {
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+            }
+            VStack {
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+                ZStack {
+                    Image(systemName: "lasso.and.sparkles")
+                }
+            }
+        }
     }
 }
 
