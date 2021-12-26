@@ -18,15 +18,16 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color.blue
-                .opacity(0.6)
+            LinearGradient(colors: [.blue.opacity(0.65), .black.opacity(0.97)], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack(spacing: 30) {
                 VStack {
                     Text("Tap the flag of")
                         .foregroundColor(.white)
+                        .font(.subheadline).fontWeight(.semibold)
                     Text(countries[correctAnswer])
                         .foregroundColor(.white)
+                        .font(.largeTitle).fontWeight(.semibold)
                 }
                 
                 ForEach(0..<3) { number in
@@ -35,6 +36,9 @@ struct ContentView: View {
                     } label: {
                         Image(countries[number])
                             .renderingMode(.original)
+                            .cornerRadius(20)
+                        //                            .clipShape(Capsule())
+                            .shadow(radius: 5)
                     }
                 }
             }
