@@ -14,7 +14,6 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var score = 0
     @State private var numberOfGames = 0
-    @State private var endOfTheGame = false
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -54,7 +53,7 @@ struct ContentView: View {
                                 .shadow(radius: 5)
                         }
                     }
-                                                         
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
@@ -73,13 +72,10 @@ struct ContentView: View {
             .padding()
         }
         .alert(scoreTitle, isPresented: $showingScore) {
-            Button("Continue", action: askQuestion)
+            Button("Continue", action: numberOfGames < 8 ? askQuestion : reset)
         } message: {
-            Text("You score is \(score)?")
+            Text(numberOfGames < 8 ? "You score is \(score)?" : "Game over!")
         }
-//        .alert("Game is over", isPresented: $endOfTheGame) {
-//            reset()
-//        }
     }
     
     func flagTapped(_ number: Int) {
@@ -92,11 +88,6 @@ struct ContentView: View {
             score -= 1
         }
         showingScore = true
-        if numberOfGames == 8 {
-            endOfTheGame = true
-            //            reset()
-        }
-        
     }
     
     func askQuestion() {
