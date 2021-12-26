@@ -47,8 +47,8 @@ struct ContentView: View {
                         } label: {
                             Image(countries[number])
                                 .renderingMode(.original)
-                            //                            .cornerRadius(20)
-                                .clipShape(Capsule())
+                                .cornerRadius(20)
+//                                .clipShape(Capsule())
                                 .shadow(radius: 5)
                         }
                     }
@@ -89,7 +89,7 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
-    }  
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
