@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
     @State private var score = 0
+    @State private var numberOfGames = 0
+    @State private var endOfTheGame = false
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -52,6 +54,7 @@ struct ContentView: View {
                                 .shadow(radius: 5)
                         }
                     }
+                                                         
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
@@ -74,23 +77,36 @@ struct ContentView: View {
         } message: {
             Text("You score is \(score)?")
         }
+//        .alert("Game is over", isPresented: $endOfTheGame) {
+//            reset()
+//        }
     }
     
     func flagTapped(_ number: Int) {
+        numberOfGames += 1
         if number == correctAnswer {
-            scoreTitle = "Correct! You get 1 point"
+            scoreTitle = "Correct! You get 1 point."
             score += 1
         } else {
-            scoreTitle = "Wrong! You lose 1 point"
+            scoreTitle = "Wrong! You lose 1 point."
             score -= 1
         }
-        
         showingScore = true
+        if numberOfGames == 8 {
+            endOfTheGame = true
+            //            reset()
+        }
+        
     }
     
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+    
+    func reset() {
+        score = 0
+        numberOfGames = 0
     }
 }
 
